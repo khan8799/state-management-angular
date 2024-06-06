@@ -1,0 +1,26 @@
+<div class="row" *ngIf="post">
+    <div class="col-md-12">
+        <form [formGroup]="editForm" (submit)="onSubmit()">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder=""
+                    formControlName="title">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                    class="form-control"
+                    id="description"
+                    rows="3"
+                    formControlName="description"></textarea>
+            </div>
+            <div class="my-3">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
