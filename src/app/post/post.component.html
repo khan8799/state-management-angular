@@ -1,0 +1,34 @@
+<div class="row my-3">
+    <div class="col-md-8">
+        <h3>Posts</h3>
+        <button class="btn btn-primary" [routerLink]="['add']">Add Post</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts$ | async">
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.description }}</td>
+                    <td>
+                        <a [routerLink]="['edit', post.id]" class="btn btn-sm btn-primary">Update</a>
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            (click)="onDelete(post.id)">Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>
